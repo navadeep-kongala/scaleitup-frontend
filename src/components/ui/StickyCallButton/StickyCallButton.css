@@ -1,0 +1,18 @@
+.sticky-call-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--color-black);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.sticky-call-button:hover {
+  background: #222;
+}
+
+.sticky-call-button__icon { display: inline-flex; align-items: center; }
+.sticky-call-button__label { font-weight: 600; }

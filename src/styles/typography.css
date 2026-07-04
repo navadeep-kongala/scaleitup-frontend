@@ -1,0 +1,69 @@
+/*
+  TYPOGRAPHY.CSS
+  --------------
+  How text looks site-wide. Headlines (h1/h2) use Space Grotesk in
+  uppercase with tight letter spacing for the bold, confident "premium
+  agency" voice. Body text uses Inter for easy readability on mobile.
+*/
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Big hero-style headline — used once per page, max */
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem); /* scales smoothly from mobile to desktop */
+  text-transform: uppercase;
+}
+
+/* Section headings, e.g. "Our Services" */
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+  text-transform: uppercase;
+}
+
+h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); }
+h4 { font-size: 1.1rem; }
+
+p, li, label, input, textarea, button {
+  font-family: var(--font-body);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Small uppercase tag above a heading, e.g. "PREMIUM GROWTH PARTNER" */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+}
+
+/* Big gold stat numbers, e.g. "150+ Projects" */
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}

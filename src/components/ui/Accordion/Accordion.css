@@ -1,0 +1,58 @@
+/*
+  ACCORDION.CSS
+  -------------
+*/
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.accordion__trigger:hover {
+  color: var(--color-gold);
+}
+
+.accordion__item--open .accordion__trigger {
+  color: var(--color-gold);
+}
+
+/* The +/- icon */
+.accordion__icon {
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+  color: var(--color-gold);
+}
+
+.accordion__body {
+  padding-bottom: var(--space-md);
+}
+
+.accordion__body p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+}

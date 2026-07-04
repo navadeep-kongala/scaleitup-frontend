@@ -1,0 +1,54 @@
+/*
+  TOKENS.CSS
+  ----------
+  The site's single source of truth for colors, spacing, fonts, and
+  motion. Every other CSS file references these variables instead of
+  hardcoding values — so changing the brand gold, for example, is a
+  one-line edit here that updates the entire site.
+*/
+
+:root {
+  /* Brand colors */
+  --color-black: #0a0a0a;
+  --color-black-soft: #171717;
+  --color-white: #ffffff;
+  --color-off-white: #f7f7f5;
+  --color-gold: #F4B400;
+  --color-gold-dark: #1a1300;
+  --color-border: #2a2a2a;
+  --color-border-light: #e8e8e4;
+
+  /* Text colors */
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #5c5c58;
+  --color-text-muted: #8a8a85;
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: #b3b3ad;
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+
+  /* Layout */
+  --max-width: 1240px;
+  --header-height: 80px;
+}

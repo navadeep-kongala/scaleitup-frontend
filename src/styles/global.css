@@ -1,0 +1,59 @@
+/*
+  GLOBAL.CSS
+  ----------
+  Browser reset + base page setup. Flattens default styling differences
+  between browsers (margins, fonts, etc.) and defines a few reusable
+  layout helper classes (.container, .section) used across every page.
+*/
+
+* { box-sizing: border-box; } /* padding/border no longer add to an element's width */
+
+html { scroll-behavior: smooth; } /* nav links glide to sections instead of jumping */
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-white);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video {
+  max-width: 100%;
+  display: block; /* removes the small gap browsers add under inline images */
+}
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+/* Keeps page content from stretching edge-to-edge on big monitors */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Apply to any <section> for consistent vertical spacing site-wide */
+.section { padding: var(--space-2xl) 0; }
+.section--dark { background: var(--color-black); color: var(--color-text-inverse); }
+.section--light { background: var(--color-off-white); }
+
+/* Visually hides text but keeps it readable by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
