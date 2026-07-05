@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="container header__inner">
-        <a href="/" className="header__logo">SKALEITUP</a>
+        <a href="/" className="header__logo">SCALEITUP</a>
 
         <nav className="header__nav" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (

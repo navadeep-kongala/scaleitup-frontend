@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__top">
         <div className="footer__brand">
-          <span className="footer__logo">SKALEITUP</span>
+          <span className="footer__logo">SCALEITUP</span>
           <p className="footer__tagline">
             We build systems that help businesses scale.
           </p>
@@ -33,14 +33,14 @@ export default function Footer() {
           <div className="footer__col">
             <h4>Contact</h4>
             <a href="tel:+91 93982 56690">+91 93982 56690</a>
-            <a href="mailto:hello@skaleitup.com">hello@skaleitup.com</a>
+            <a href="mailto:hello@scaleitup.com">hello@scaleitup.com</a>
             <a href="/contact">Hyderabad, Telangana</a>
           </div>
         </div>
       </div>
 
       <div className="container footer__bottom">
-        <span>© {year} SkaleItUp. All rights reserved.</span>
+        <span>© {year} SCALEITUP. All rights reserved.</span>
         <div className="footer__legal">
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-and-conditions">Terms & Conditions</a>
