@@ -1,40 +1,35 @@
 /*
   API.JS
   ------
-  The single shared connection point to your back-end server. Every
-  other service file (contactService.js, blogService.js, etc.) imports
-  this instead of writing its own fetch() logic — so if your back-end
-  URL ever changes, you edit ONE line here.
+  Always points to the local backend on port 5000 during development.
+  In production it reads from VITE_API_URL environment variable.
 */
 
-// Reads the back-end URL from an environment variable (set in .env),
-// falling back to the Vite proxy path for local development.
-const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
-/*
-  A small wrapper around fetch() that:
-  - automatically prefixes every request with the back-end base URL
-  - automatically sets JSON headers
-  - automatically parses the JSON response
-  - throws a readable error if the server responds with a failure status
+export async function api(path, { method = 'GET', body, headers = {}, signal } = {}) {
+  try {
+    const response = await fetch(`${BASE_URL}${path}`, {
+      method,
+      signal,
+      headers: {
+        'Content-Type': 'application/json',
+        ...headers,
+      },
+      body: body ? JSON.stringify(body) : undefined,
+    });
 
-  Usage elsewhere: api('/contact', { method: 'POST', body: { name, email } })
-*/
-export async function api(path, { method = 'GET', body, headers = {} } = {}) {
-  const response = await fetch(`${BASE_URL}${path}`, {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-      ...headers,
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null);
+      throw new Error(errorData?.message || `Request failed: ${response.status}`);
+    }
 
-  if (!response.ok) {
-    // Try to read a useful error message from the server, otherwise use a generic one
-    const errorData = await response.json().catch(() => null);
-    throw new Error(errorData?.message || `Request failed: ${response.status}`);
+    return response.json();
+  } catch (err) {
+    // Catch network errors and show a readable message
+    if (err.message === 'Failed to fetch') {
+      throw new Error('Cannot reach server. Make sure backend is running on port 5000.');
+    }
+    throw err;
   }
-
-  return response.json();
 }

@@ -29,16 +29,25 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // stops the page from reloading on submit
     setError('');
+    setSuccessMessage('');
     setIsSubmitting(true);
 
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 10000);
+
     try {
-      const response = await submitContactForm(form);
+      const response = await submitContactForm(form, { signal: controller.signal });
       setSuccessMessage(response.message || 'Thanks — we will be in touch within one business day.');
       setSubmitted(true);
       setForm({ name: '', email: '', phone: '', message: '' });
     } catch (err) {
-      setError(err.message || 'Unable to send your message. Please try again later.');
+      if (err.name === 'AbortError') {
+        setError('The request timed out. Please try again.');
+      } else {
+        setError(err.message || 'Unable to send your message. Please try again later.');
+      }
     } finally {
+      clearTimeout(timeoutId);
       setIsSubmitting(false);
     }
   };
@@ -98,7 +107,7 @@ export default function Contact() {
         {/* Google Maps embed + sticky contact buttons */}
         <div style={{ marginTop: 32 }}>
           <iframe
-            title="SkaleItUp location"
+            title="ScaleItUp location"
             src="https://www.google.com/maps?q=Hyderabad%2C%20India&output=embed"
             width="100%"
             height="300"

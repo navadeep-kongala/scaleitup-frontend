@@ -13,9 +13,10 @@ import { api } from './api';
 
 // Sends the contact form data to the back-end, which saves it to the
 // database (ContactSubmission model) and triggers a lead notification email.
-export async function submitContactForm(formData) {
+export async function submitContactForm(formData, options = {}) {
   return api('/contact', {
     method: 'POST',
     body: formData, // expects { name, email, phone?, message }
+    ...options,
   });
 }

@@ -14,7 +14,7 @@ export const CONTACT = {
   phone: '+91 93982 56690',
   phoneHref: 'tel:+91 93982 56690',
   email: 'hello@skaleitup.com',
-  whatsapp: 'https://wa.me/9398256690?text=hii%20we%20want%20your%20services',
+  whatsapp: 'https://wa.link/fw0y70',
   address: 'Hyderabad, Telangana, India',
 };
 

@@ -9,7 +9,8 @@ export default function WhatsAppButton({
   message = DEFAULT_MESSAGE,
   className = '',
 }) {
-  const href = `${CONTACT.whatsapp}?text=${encodeURIComponent(message)}`;
+  const baseHref = CONTACT.whatsapp;
+  const href = `${baseHref}${baseHref.includes('?') ? '&' : '?'}text=${encodeURIComponent(message)}`;
 
   return (
     <Button
